@@ -1,0 +1,41 @@
+<%- include('template/cabezera.ejs')  %>
+<body>
+  <br>
+  <div class="button-container">
+    <form action="/imagenes" method="get">
+      <button type="submit" class="list">lista de imágenes</button>
+    </form>
+    <form action="/categoria" method="get">
+      <button type="submit" class="list">lista de categoría</button>
+    </form>
+  </div>
+  <br>
+  <h1 class="l">lista de clientes</h1>
+  <br>
+  <table class="u">
+    <thead>
+      <tr>
+        <th class="o">id</th>
+        <th class="o"class="o">Nombre</th>
+        <th class="o">codigo</th>
+        <th class="o">editar</th>
+        <th class="o">borrar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i<clientes.length; i++) { %>
+        <tr>
+          <td class="i"><%= clientes[i].id %></td>
+          <td class="i"><%= clientes[i].username %></td>
+          <td class="i"><%= clientes[i].password %></td>
+          <td>
+          <a href="/admin/<%= clientes[i].id %>/actualizar" class="add">Editar</a>
+        </td>
+        <td>
+          <a href="/clientes/<%= clientes[i].id %>/delete" class="add">borrar</a>
+        </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>  
+</body>

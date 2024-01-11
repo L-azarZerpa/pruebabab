@@ -1,0 +1,39 @@
+<%- include('template/cabezera.ejs')  %>
+<% for (var i=0; i<productos.length; i++) { %>
+<form action="/admin/agregar" method="post">
+    <section class="form-register2">
+        <h4>formularios</h4>
+        <br>
+        <label for="name">nombre</label>
+        <input class="controls" type="text" name="name" id="name" value="<%=  productos[i].name %>" required>
+        <br>
+        <label for="code">codigo</label>
+        <input class="controls" type="text" name="code" id="code" value="<%=  productos[i].code %>" required>
+        <br>
+        <label for="price">precio</label>
+        <input class="controls" type="text" name="price" id="price" value="<%=  productos[i].price %>" required>
+        <br>
+        <input class="controls" type="text" name="description" id="description" value="<%=  productos[i].description %>" required>
+        <br>
+        <label for="brand">marca</label>
+        <input class="controls" type="brand" name="brand" id="brand" value="<%=  productos[i].brand %>" required>
+        <br>
+        <label for="size">talla</label>
+        <input class="controls" type="size" name="size" id="size" value="<%=  productos[i].size %>" required>
+        <br>
+        <label for="id">id</label>
+        <input class="controls" type="id" name="id" id="id" value="<%=  productos[i].id %>" required>
+        <% } %>
+        <br>
+        <label for="categoria_id">Categoría:</label>
+        <select id="categoria_id" name="categoria_id" class="controls" required>
+        <% for (var i=0; i<categorias.length; i++) { %>   
+        <option value="<%= categorias[i].idCategoria %>"><%= categorias[i].nameCategoria %></option>
+        <% } %>
+        </select>
+        <br>
+        <input class="botons" type="submit" >
+    </section>  
+    </form>
+
+  

@@ -1,0 +1,16 @@
+<%- include('template/cabezera.ejs')  %>
+<% for (var i=0; i<categorias.length; i++) { %>
+<form action="/admin/agregarCategoria" method="post">
+    <section class="form-register2">
+        <h4>form</h4>
+        <br>
+        <label for="nameCategoria">nombre</label>
+        <input class="controls" type="text" name="nameCategoria" id="nameCategoria" value="<%= categorias[i].nameCategoria %>" required>
+        <br>
+        <label for="idCategoria">id</label>
+        <input class="controls" type="id" name="idCategoria" id="idCategoria" value="<%= categorias[i].idCategoria %>" required>
+        <br>
+      <input class="botons" type="submit" >
+    </section>  
+    </form> 
+    <% } %>

@@ -1,0 +1,98 @@
+<%- include('template/cabezera.ejs')  %>
+<body>
+    <div class="page-nav">
+        <h1>Mi tienda</h1>
+       
+    </div>
+    
+
+    
+    <% for (var i=0; i<productosConImagenes3.length; i++) { %>
+    <div class="product">
+        <div class="img-container">
+            
+            <img id="imageBox" src="<%= productosConImagenes3[i].url%>" alt="">
+        </div>
+        <% } %>
+         
+        <div class="product-small-img">
+            <% for (var i=0; i<productosConImagenes2.length; i++) { %>
+            <img src="<%= productosConImagenes2[i].url%>" alt="" onclick="myFuction(this)"> <% } %>
+          
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function myFuction(smallImg) {
+            var fullImg = document.getElementById("imageBox");
+            fullImg.src =smallImg.src
+        }
+    </script>
+    
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <% for (var i=0; i<productosConImagenes3.length; i++) { %>
+      
+    <div class="cus">
+        <h2><%= productosConImagenes3[i].name%> </h2>
+        
+
+        
+            
+            <h2>$ <%= productosConImagenes3[i].price%>  </h2>
+            <button id="c" class="button-c" onclick="pay()">Pagar</button>
+    </div> 
+        <p>descripcion:</p>  
+        <p><%= productosConImagenes3[i].description%> </p>
+
+    
+         <% } %>
+
+
+
+
+
+
+
+
+
+        
+
+
+</body>
+</html>

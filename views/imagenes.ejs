@@ -1,0 +1,50 @@
+<%- include('template/cabezera.ejs')  %>
+<body>
+  <br>
+  <div class="button-container">
+    <form action="/admin" method="get">
+      <button type="submit" class="list">lista de productos</button>
+    </form>
+    <form action="/categoria" method="get">
+      <button type="submit" class="list">lista de categoria</button>
+    </form>
+  </div>
+<br>
+<h1 class="l">lista de imagenes</h1>
+<br>
+  <h2>Imágenes</h2>
+  <br>
+  <form action="/admin/agregarImagenes" method="get">
+    <button type="submit" class="list">agregar imagen</button>
+  </form>
+  <table class="u">
+    <thead>
+      <tr>
+        <th class="o">id</th>
+        <th class="o">producto_id</th>
+        <th class="o">url</th>
+        <th class="o">destacado</th>
+        <th class="o">editar</th>
+        <th class="o">borrar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i<imagenes.length; i++) { %>
+        <tr>
+          <td class="i"><%= imagenes[i].id %></td>
+          <td class="i"><%= imagenes[i].producto_id %></td>
+          <td class="i"><%= imagenes[i].url %></td>
+          <td class="i"><%= imagenes[i].destacado %></td>
+          <td>
+            <a href="/admin/<%= imagenes[i].id %>/actualizarImg" class="add">Editar</a>
+          </td>
+          <td>
+            <a href="/imagenes/<%= imagenes[i].id %>/delete" class="add">borrar</a>
+          </td>
+            
+          </tr>
+
+      <% } %>
+    </tbody>
+  </table>
+</body>

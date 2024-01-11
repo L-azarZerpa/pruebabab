@@ -1,0 +1,90 @@
+<%- include('template/cabezera.ejs')  %>
+  <body>
+  <div class="page-nav">
+      <h1 class="hhh">Mi tienda</h1>
+      <input class="buscador" type="text" name="buscador" id="buscador" placeholder="Buscar...">
+      <!--<button id="checkout" class="button-checkout" onclick="pagar()">Pagar</button>  -->
+      <form action="/register" method="get">
+        <button id="checkout" class="button-checkout">Pagar</button>
+      </form>
+  </div>
+    
+  <br>  
+  
+<!--  -->
+<input id="caja" class="modo" type="button" value="cambiar modo">
+<br>
+  <div class="pc" id="pc">
+    <% for (var i=0; i<productosConImagenes.length; i++) { %>
+    <div class="articulo">
+      <h3><%= productosConImagenes[i].name %></h3>
+      <a href="/producto/<%= productosConImagenes[i].id %>">
+        <img src="<%= productosConImagenes[i].url %>" alt="<%= productosConImagenes[i].name %>"></td>
+      </a>
+      <h1><%= productosConImagenes[i].price %> $</h1>
+      <h6><%= productosConImagenes[i].code %></h6>
+      <h6><%= productosConImagenes[i].description %></h6>
+      <h6><%= productosConImagenes[i].brand %></h6>
+      <h6><%= productosConImagenes[i].size %></h6>
+      <h6><%= productosConImagenes[i].nameCategoria %></h6>
+      <button class="button-add" onclick="add('<%= productosConImagenes[i].name %>', '<%= productosConImagenes[i].price %>')">Agregar</button>
+    </div>
+  <% } %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+  <table class="filtro" id="e">
+    <thead>
+      <tr>   
+        <th class="o">Nombre</th>
+        <th class="o">imagenes</th>
+        <th class="o">precio</th>
+        <th class="o">o</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i<productosConImagenes.length; i++) { %>
+     <tr class="iw">
+          <td class="i"><%= productosConImagenes[i].name %></td>
+          <td class="i">
+          <a href="/producto/<%= productosConImagenes[i].id %>">
+            <img class="imageness" src="<%= productosConImagenes[i].url %>" alt="<%= productosConImagenes[i].name %>"></td>
+          </a>
+          <td class="i"><%= productosConImagenes[i].price %> $</td>
+          <td class="i">
+            <button class="button-add" onclick="add('<%= productosConImagenes[i].name %>', '<%= productosConImagenes[i].price %>')">Agregar</button>
+          </td>
+          <td class="inv"><%= productosConImagenes[i].code %></td>
+          <td class="inv"><%= productosConImagenes[i].description %></td>
+          <td class="inv"><%= productosConImagenes[i].brand %></td>
+          <td class="inv"><%= productosConImagenes[i].size %></td>
+          <td class="inv"><%= productosConImagenes[i].nameCategoria %></td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>  
+</div>
+<script src="pepe.js"></script>
+<script src="script.js"></script>
+<script src="script2.js"></script> 
+<script src="script3.js"></script> 
+  
+  </body>
+</html>

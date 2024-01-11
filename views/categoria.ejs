@@ -1,0 +1,46 @@
+<%- include('template/cabezera.ejs')  %>
+<body>
+<br>
+  <div class="button-container">
+    <form action="/admin" method="get">
+      <button type="submit" class="list">lista de productos</button>
+    </form>
+    <form action="/imagenes" method="get">
+      <button type="submit" class="list">lista de imagenes</button>
+    </form>
+  </div>
+    <br>
+<h1 class="l">lista de categoria</h1>
+<br>
+  <h2>Categorías</h2>
+<br>
+  <form action="/admin/agregarCategoria" method="get">
+    <button type="submit" class="list">agregar categoria</button>
+  </form>
+  <br>
+  <table class="u">
+    <thead>
+      <tr>
+        <th class="o">id</th>
+        <th class="o">Nombre</th>
+        <th class="o">editar</th>
+        <th class="o">borrar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i<categorias.length; i++) { %>
+        
+        <tr>
+          <td class="i"><%= categorias[i].idCategoria %></td>
+          <td class="i"><%= categorias[i].nameCategoria %></td>
+          <td>
+          <a href="/admin/<%= categorias[i].idCategoria %>/actualizarCat" class="add">Editar</a>
+          </td>
+          <td>
+          <a href="/categoria/<%= categorias[i].idCategoria %>/delete" class="add">borrar</a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</body>
